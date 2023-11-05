@@ -1,0 +1,78 @@
+{
+  "name": "cryptochain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npx npm-force-resolutions",
+    "build-client": "npm run clean && parcel build client/src/index.html --out-dir client/dist --cache-dir client/.cache",
+    "clean": "rm -rf client/.cache client/dist",
+    "start": "npm run build-client & NODE_ENV=production node bin/www",
+    "test": "jest tests --watchAll",
+    "dev-client": "npm run clean && parcel client/src/index.html --out-dir client/dist --cache-dir client/.cache",
+    "dev": "npm run dev-client & cross-env DEBUG=cryptochain:* NODE_ENV=development nodemon bin/www",
+    "dev-peer": "cross-env PORT=3001 DEBUG=cryptochain:* NODE_ENV=development nodemon bin/www"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.17.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.22.0",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
+    "bcrypt": "^5.0.0",
+    "bn.js": "^5.1.3",
+    "bootstrap": "^4.5.3",
+    "debug": "^4.3.1",
+    "dotenv": "^8.2.0",
+    "elliptic": "^6.5.3",
+    "express": "^4.17.1",
+    "helmet": "^4.2.0",
+    "hex-to-binary": "^1.0.1",
+    "history": "^5.0.0",
+    "http-errors": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.8",
+    "mongoose-timestamp": "^0.6.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.4.17",
+    "nodemailer-express-handlebars": "^4.0.0",
+    "parcel-bundler": "^1.12.4",
+    "passport": "^0.4.1",
+    "passport-http-bearer": "^1.0.1",
+    "passport-local": "^1.0.0",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.4.0",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
+    "redis": "^3.0.2",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
+    "socket.io": "^3.0.4",
+    "socket.io-client": "^3.0.4",
+    "uuid": "^8.3.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.2",
+    "utf-8-validate": "^5.0.3"
+  },
+  "resolutions": {
+    "node-forge": "^0.10.0"
+  }
+}
